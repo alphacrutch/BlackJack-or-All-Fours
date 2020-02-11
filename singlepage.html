@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href= "boardlayout.css">
+    <title>Single Page App</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        .suit {
+            display: inline;
+        }
+        .grid-items {
+            background: black;
+            color: blanchedalmond;
+            padding: 5px;
+            border: 1px red solid;
+        }
+        .grid {
+            position: relative;
+            display: grid inline;
+            grid-template-columns:repeat(3,minmax(25px,200px));
+            grid-auto-rows: minmax(50px,280px);
+            grid-gap: 5px;
+
+        }
+
+        #article1 {    
+           height: 925px;
+           width: 100%;
+           background:-moz-linear-gradient(green,chartreuse);
+                      
+             }
+        #article2 {
+            width: 100%;    
+            height: 925px;
+            background: -moz-linear-gradient(blue, red);
+        }
+        #article3 {
+            width: 100%;
+            height: 925px;
+            background: -moz-linear-gradient(aqua,teal);
+        }
+        #text1 {
+            height: 100px;
+            width: 300px;
+            border: 5px black solid ;
+            border-radius: 20px;
+            font-size: large;
+            overflow: scroll;
+        }
+        
+
+        .article-one-wrapper {
+            margin: 5px;  
+            left: 2rem;
+            top: 100px;
+            position: absolute;          
+            
+           
+        }
+        
+    </style>
+
+</head>
+<body>    
+    <article id="article1">  
+        <header style="position: absolute; height: fit-content; border: 5px solid black;
+                   height: 100px; width: 100%;" > 
+            <nav style="position: relative; ">
+                <div id="main-nav-circle"></div>
+                <a href=#article1 id="a1"><div id="nav-sub-circle1" class="nav-sub-circles">1</div></a> 
+                <a href=#article2 id="a2"><div id="nav-sub-circle2" class="nav-sub-circles">2</div></a>
+                <a href=#article3 id="a3"><div id="nav-sub-circle3" class="nav-sub-circles">3</div></a>
+                <a href=#article1 id="a4"><div id="nav-sub-circle4" class="nav-sub-circles">4</div></a>
+            </nav>
+      </header> 
+      <div class="article-one-wrapper">
+            <h1>Article One</h1>
+            <h2>Create Player</h2>
+            <p>Enter your desired name and choose game</p>
+            <label for="email">Email :</label><br>
+            <input type="email" name="email" id="email" placeholder="Example@site.com"> 
+            <br>
+            <label for="name" id="nameLabel">Name you will be seen as :</label><br>
+            <input type="text" name="name" id="name" placeholder="8-20 letters">
+            <input type="button" value="Add name" id="addname" onclick="newGame()"><br>
+            <label for="game">Choose Your game from the list :</label><br>
+            <input type="radio" name="game" id="game" ><br>
+      </div>  
+      <div id="greeting"></div>
+        
+        
+    </article>
+    <article id="article2">
+        <div id="headers">
+            <h1>Article Two </h1>
+            <h2> Cards</h2>
+        </div>
+        <div id="one" class= "suit">Ace</div>
+        <div id="two" class= "suit">2</div>
+        <div id="three" class= "suit">3</div>
+        <div id="four" class= "suit">4</div>
+        <div id="five" class= "suit">5</div>
+        <div id="six" class= "suit">6</div>
+        <div id="seven" class= "suit">7</div>
+        <div id="eight" class= "suit">8</div>
+        <div id="nine" class= "suit">9</div>
+        <div id="ten" class= "suit">10</div>
+        <div id="jack" class= "suit">Jack</div>
+        <div id="queen" class= "suit">Queen</div>
+        <div id="king" class= "suit">King</div>
+        <div id="player1" class= "ply1pic suit">Player One: <p id="player1Name" class= "suit"></p></div>
+        <div id="player2" class= "ply2pic suit">Player Two: <p id="player2Name" class= "suit"></p></div>
+
+        <div class="grid">
+            <div id="one" class= "grid-items">1</div>
+            <div id="two" class= "grid-items hand-container">
+                <div id="card1" class = "hand hand-pic">1</div>
+                <div id="card2" class = "hand hand-pic">2</div>
+                <div id="card3" class = "hand hand-pic">3</div>
+                <div id="card4" class = "hand hand-pic">4</div>
+                <div id="card5" class = "hand hand-pic">5</div>
+                <div id="card6" class = "hand hand-pic">6</div>
+            </div>
+            <div id="three" class= "grid-items">3</div>
+            <div id="four" class= "grid-items">4</div>
+            <div id="cardPot" class= "grid-items">Pot</div>
+            <div id="six" class= "grid-items">6</div>
+            <div id="seven" class= "grid-items">7</div>
+            <div id="eight" class= "grid-items">8</div>
+            <div id="nine" class= "grid-items">9</div>
+        </div>
+        
+    </article>
+    <article id="article3"> 
+        <h1>Article Three</h1>
+    </article>
+ <script type="text/javascript">
+ let article1Text = document.getElementById("a1");
+ article1Text.onclick =
+  function firstP(){
+     let text = "Welcome to My Simple Web Page";
+     createP(text);
+         
+ } 
+
+ function createP(text){
+    let p = document.createElement("p");
+     let node = document.createTextNode(text);
+     p.appendChild(node);
+     let parent =document.getElementById("text1");
+     parent.appendChild(p);
+     
+ }
+
+ </script> 
+ <script type="text/javascript">
+ class Player {
+constructor (id, name,gameId, game) {
+    this.id = id;
+    this.gameId = gameId;
+    this.game = game;
+    }
+
+    getName(){
+       let name = document.getElementById('name').value;
+       let name = 'andyqwert';
+
+        if (name.length < 8 || name.length > 16 ){
+            alert('Name must be betwen 8 and 16 letters long');
+            console.log('error')
+            return;
+        }
+        let text = 'Your Username is ' + name;  
+        createP(text);    
+        console.log(name);
+        return this.name;
+
+    }
+}
+
+
+function createP(text){
+   let p = document.createElement("p");
+    let node = document.createTextNode(text);
+    p.appendChild(node);
+    let parent =document.getElementsByTagName('label');
+    parent.appendChild(p);
+    
+}
+const playerOne = new Player();
+//playerOne.name = 'jake';
+//playerOne.id = 'alphacrutch@gmail.com';
+console.log(playerOne);
+ </script> 
+ <script src="Deck.js"></script>   
+<!-- <script src="player.js"></script>   -->  
+    
+</body>
+</html>
