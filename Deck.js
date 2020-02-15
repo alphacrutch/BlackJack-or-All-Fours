@@ -1,14 +1,22 @@
 //Global Variables
-let suits = ['Hearts','Spades','Clubs','Diamonds'];
-let values = [2,3,4,5,6,7,8,9,10,'Jack', 'Queen', 'King', 'Ace'];
-let playerList = [];
+const suits = ['Hearts','Spades','Clubs','Diamonds'];
+const values = [2,3,4,5,6,7,8,9,10,'Jack', 'Queen', 'King', 'Ace'];
+const points = [
+    {10:10},
+    {"Jack":1},
+    {"Queen":2},
+    {"King":3},
+    {"Ace":4}
+];
+let playerList =[];
 let pot =[];
+
 //Card class for creating card objects
 class Card {
-    constructor (suit,value,points) {
+    constructor (suit,value,point) {
         this.suit = suit;
         this.value = value;
-        this.points = points; //need to define points for cards
+        this.point = point; //need to define points for cards
     }
 }
 
@@ -20,8 +28,8 @@ class Dealer {
 
     createDeck(suits,values){
         for (let suit of suits){
-            for ( let value of values) {
-                  this.deck.push(new Card(suit, value));
+            for ( let value of values) {                
+                 this.deck.push(new Card(suit, value));               
             }
         }
           return this.deck; 
@@ -50,7 +58,7 @@ class Dealer {
         return this.deck.length;
     }
 } 
-
+let deck = new Dealer; 
 class Player {
     constructor (name) {
         this.name = name;
@@ -109,15 +117,18 @@ class Player {
 
     //ToDo:
     // Game class to hold function newGame to start the deal 
-    /*class Game {
+    /*
+    class Game {
         constructor (deck, players){
             this.deck = new Dealer();
             this.players = new Player(player,deck.dela());
         }               
-    }*/
+    }
+    */
     
     //ToDo:
     //Application start need to place in function
+       /*
        let deck = new Dealer();        
         getName()
         deck.createDeck(suits, values);
@@ -126,9 +137,58 @@ class Player {
                     players = new Player(player, deck.deal());
                     console.log(players.name);
                     players.playCard();
+                    pot_div.innerHTML=players.playCard();
+
                     console.log(pot);
-                    //console.log(deck.deal());
-                    //console.log(deck.getCardsLeft());
-                    //player.displayHand();        
+                    console.log(points);
+                        
+                    console.log(deck.deal());
+                    console.log(deck.getCardsLeft());
+                    player.displayHand();        
                 
-            }           
+            }
+            */    
+/* 
+function createP(text){
+    let p = document.createElement("p");
+        let node = document.createTextNode(text);
+        p.appendChild(node);
+        p.style.position="absolute";
+        p.style.color="blue"
+        let parent =document.getElementsById('pot');
+        parent.appendChild(p);
+                 
+             }
+             */
+function newGame(){
+    let pile = document.getElementById("pot1");
+
+
+    getName()
+    deck.createDeck(suits, values);
+    deck.shuffleDeck();       
+        for(let player of playerList){    
+                player = new Player(player, deck.deal());
+                player.playCard();
+                //let text = pot[0];
+                pile.innerText = pot[0].suit + " " +pot[0].value;
+               /*
+               for ( let i=0; i <pot.length; i++){
+                   if ( pot == null ){
+                       alert('pot is empty');
+                   } else {
+                    pile.innerText = pot[i].suit + " " +pot[i].value;
+                    //pile.innerHTML = card;
+                   }
+                
+               }
+               */
+             
+                //createP(text);
+                console.log(pot);
+               
+            }
+        } 
+        
+       const btn = document.getElementById("newgame-btn");
+       btn.addEventListener('click', newGame);

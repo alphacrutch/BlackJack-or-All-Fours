@@ -51,15 +51,4 @@
 div { 
     font-size: larger;
 }
-.hand-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(3,100px);
-}
-.hand {
-    border: 1px pink solid;
-    background: white;
-    padding: 2px;
-    color: black;
-    font-size: medium;
-}
+

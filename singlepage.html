@@ -8,40 +8,30 @@
     <link rel="stylesheet" href="cards.css">
     <link rel="stylesheet" href= "boardlayout.css">
     <title>Single Page App</title>
+    
     <style>
         html{
             scroll-behavior: smooth;
-        }
-        .suit {
-            display: inline;
-        }
-        .grid-items {
-            background: black;
-            color: blanchedalmond;
-            padding: 5px;
-            border: 1px red solid;
-        }
-        .grid {
-            position: relative;
-            display: grid inline;
-            grid-template-columns:repeat(3,minmax(25px,200px));
-            grid-auto-rows: minmax(50px,280px);
-            grid-gap: 5px;
-
-        }
-
+        }        
         #article1 {    
-           height: 925px;
-           width: 100%;
-           background:-moz-linear-gradient(green,chartreuse);
-                      
-             }
+            display: flex;
+            position: absolute;;
+            height: 925px;
+            width: 100%;
+            background:-moz-linear-gradient(green,chartreuse);           
+        }
         #article2 {
+            display: flex;
+            top:925px;
             width: 100%;    
             height: 925px;
             background: -moz-linear-gradient(blue, red);
+            position:absolute;
         }
         #article3 {
+            display: flex;
+            top:1850px;
+            position:absolute;
             width: 100%;
             height: 925px;
             background: -moz-linear-gradient(aqua,teal);
@@ -53,20 +43,17 @@
             border-radius: 20px;
             font-size: large;
             overflow: scroll;
-        }
-        
-
+        }    
         .article-one-wrapper {
             margin: 5px;  
             left: 2rem;
             top: 100px;
-            position: absolute;          
-            
-           
+            position: absolute;        
         }
-        
+        #card-value {
+            color:black;
+        }
     </style>
-
 </head>
 <body>    
     <article id="article1">  
@@ -92,6 +79,20 @@
             <input type="button" value="Add name" id="addname" onclick="newGame()"><br>
             <label for="game">Choose Your game from the list :</label><br>
             <input type="radio" name="game" id="game" ><br>
+            <div class="card-wrapper">
+                <div class="card">
+                  <div class="value-wrapper">
+                    <div class="value top">A</div>
+                    <div class="suit-side">&#x2661;</div>
+                  </div>
+                    <div class="suit-hearts center-suit">&#x2661;</div>
+                  <div class="lower-value-wrapper">
+                   <div class="value lower">A</div>  
+                   <div class="suit-side">&#x2661;</div>
+                   
+                   </div>
+                 </div>
+               </div>       
       </div>  
       <div id="greeting"></div>
         
@@ -102,44 +103,144 @@
             <h1>Article Two </h1>
             <h2> Cards</h2>
         </div>
-        <div id="one" class= "suit">Ace</div>
-        <div id="two" class= "suit">2</div>
-        <div id="three" class= "suit">3</div>
-        <div id="four" class= "suit">4</div>
-        <div id="five" class= "suit">5</div>
-        <div id="six" class= "suit">6</div>
-        <div id="seven" class= "suit">7</div>
-        <div id="eight" class= "suit">8</div>
-        <div id="nine" class= "suit">9</div>
-        <div id="ten" class= "suit">10</div>
-        <div id="jack" class= "suit">Jack</div>
-        <div id="queen" class= "suit">Queen</div>
-        <div id="king" class= "suit">King</div>
-        <div id="player1" class= "ply1pic suit">Player One: <p id="player1Name" class= "suit"></p></div>
-        <div id="player2" class= "ply2pic suit">Player Two: <p id="player2Name" class= "suit"></p></div>
-
-        <div class="grid">
-            <div id="one" class= "grid-items">1</div>
-            <div id="two" class= "grid-items hand-container">
-                <div id="card1" class = "hand hand-pic">1</div>
-                <div id="card2" class = "hand hand-pic">2</div>
-                <div id="card3" class = "hand hand-pic">3</div>
-                <div id="card4" class = "hand hand-pic">4</div>
-                <div id="card5" class = "hand hand-pic">5</div>
-                <div id="card6" class = "hand hand-pic">6</div>
+        <div class="grid-container">
+            <div class="grid">
+                <div id="one" class= "grid-items">1</div>
+                <div id="two" class= "grid-items hand-container">
+                    <div id="card1" class = "hand hand-pic">1</div>
+                    <div id="card2" class = "hand hand-pic">2</div>
+                    <div id="card3" class = "hand hand-pic">3</div>
+                    <div id="card4" class = "hand hand-pic">4</div>
+                    <div id="card5" class = "hand hand-pic">5</div>
+                    <div id="card6" class = "hand hand-pic">6</div>
+                </div>
+                <div id="three" class= "grid-items">3</div>
+                <div id="four" class= "grid-items">4</div>
+                <div id="cardPot" class= "grid-items">Pot</div>
+                <div id="six" class= "grid-items">6</div>
+                <div id="seven" class= "grid-items">7</div>
+                <div id="eight" class= "grid-items">8</div>
+                <div id="nine" class= "grid-items">9</div>
             </div>
-            <div id="three" class= "grid-items">3</div>
-            <div id="four" class= "grid-items">4</div>
-            <div id="cardPot" class= "grid-items">Pot</div>
-            <div id="six" class= "grid-items">6</div>
-            <div id="seven" class= "grid-items">7</div>
-            <div id="eight" class= "grid-items">8</div>
-            <div id="nine" class= "grid-items">9</div>
-        </div>
-        
+        </div>    
     </article>
     <article id="article3"> 
         <h1>Article Three</h1>
+        <button id="newgame-btn">New Game</button>
+        <div class="board-grid">
+            <div class="grid-section"></div>
+            <div class="p4-card-grid grid-section">
+                <div class="card-display p4crd1 card-back">1</div>
+                <div class="card-display p4crd2 card-back">2</div>
+                <div class="card-display p4crd3 card-back">3</div>
+                <div class="card-display p4crd4 card-back">4</div>
+                <div class="card-display p4crd5 card-back">5</div>
+                <div class="card-display p4crd6 card-back">6</div> 
+                P4              
+            </div>
+            <div class="grid-section"></div>
+            <div class="p2-card-grid grid-section">
+                <div class="card-display-side p2crd1 card-back">1</div>
+                <div class="card-display-side p2crd2 card-back">2</div>
+                <div class="card-display-side p2crd3 card-back">3</div>
+                <div class="card-display-side p2crd4 card-back">4</div>
+                <div class="card-display-side p2crd5 card-back">5</div>
+                <div class="card-display-side p2crd6 card-back">6</div> 
+                P2              
+            </div>
+            <div class="grid-section play-area">
+                <p class="author">By: Kevon Boxill</p>
+                <div id="team1-pot" class="team1-pot">team1-pot</div>
+                <div id="pot1" class="pot"><p id="card-value"></p></div>
+                <div id="deck" class="deck card-back ">Deck</div>                >
+                <div class="deck-layer card-back"></div>
+                <div class="deck-layer card-back"></div>
+                <div id="team2-pot" class="team2-pot">team2-pot</div>
+
+            </div>
+            <div class="p3-card-grid grid-section">
+                <div class="card-display-r p3crd1 card-back">1</div>
+                <div class="card-display-r p3crd2 card-back">2</div>
+                <div class="card-display-r p3crd3 card-back">3</div>
+                <div class="card-display-r p3crd4 card-back">4</div>
+                <div class="card-display-r p3crd5 card-back">5</div>
+                <div class="card-display-r p3crd6 card-back">6</div> 
+                P3               
+            </div>
+            <div class="grid-section"></div>
+            <div class="p1-card-grid grid-section">                
+                <div class="card-display crd1">
+                    <div class="value-wrapper">
+                        <div class="value ">A</div>
+                        <div class="suit-side ">&#9824;</div>
+                    </div>
+                        <div class="center-suit">&spadesuit;</div>
+                    <div class="lower-value-wrapper">
+                        <div class="value">A</div>  
+                        <div class="suit-side">&#x2660;</div>   
+                        </div>
+                </div>               
+                <div class="card-display crd2">
+                <div class="value-wrapper">
+                    <div class="value red">A</div>
+                    <div class="suit-side red">&#9830;</div>
+                </div>
+                    <div class="red center-suit">&diamondsuit;</div>
+                <div class="lower-value-wrapper">
+                    <div class="value red">A</div>  
+                    <div class="suit-side red">&#x2666;</div>                        
+                    </div>
+                </div>
+                <div class="card-display crd3">
+                <div class="value-wrapper">
+                    <div class="value">A</div>
+                    <div class="suit-side">&#9827;</div>
+                </div>
+                    <div class="suit-hearts center-suit">&clubs;</div>
+                <div class="lower-value-wrapper">
+                    <div class="value">A</div>  
+                    <div class="suit-side">&#x2663;</div>                        
+                    </div>
+                </div>
+                <div class="card-display crd4">
+                <div class="value-wrapper">
+                    <div class="value red">A</div>
+                    <div class="suit-side red">&#9829;</div>
+                </div>
+                    <div class="red center-suit">&heartsuit;</div>
+                <div class="lower-value-wrapper">
+                    <div class="value red">A</div>  
+                    <div class="suit-side red">&#x2665;</div>
+                    
+                    </div>
+                </div>
+                <div class="card-display crd5">
+                <div class="value-wrapper">
+                    <div class="value">A</div>
+                    <div class="suit-side">&#9824;</div>
+                </div>
+                    <div class="center-suit">&spadesuit;</div>
+                <div class="lower-value-wrapper">
+                    <div class="value">A</div>  
+                    <div class="suit-side">&#x2660;</div>                        
+                    </div>
+                </div>
+                <div class="card-display crd6">
+                <div class="value-wrapper">
+                    <div class="value red">A</div>
+                    <div class="suit-side red">&#9829;</div>
+                </div>
+                    <div class="red center-suit">&heartsuit;</div>
+                <div class="lower-value-wrapper">
+                    <div class="value red">A</div>  
+                    <div class="suit-side red">&#x2665;</div>
+                    
+                    </div>
+                </div>  
+                <button class="knock-btn">Knock</button>                                           
+            </div>
+            <div class="grid-section"></div>
+        </div>
     </article>
  <script type="text/javascript">
  let article1Text = document.getElementById("a1");
@@ -161,7 +262,7 @@
 
  </script> 
  <script type="text/javascript">
- class Player {
+ /*class Player {
 constructor (id, name,gameId, game) {
     this.id = id;
     this.gameId = gameId;
@@ -183,24 +284,9 @@ constructor (id, name,gameId, game) {
         return this.name;
 
     }
-}
+}*/
 
-
-function createP(text){
-   let p = document.createElement("p");
-    let node = document.createTextNode(text);
-    p.appendChild(node);
-    let parent =document.getElementsByTagName('label');
-    parent.appendChild(p);
-    
-}
-const playerOne = new Player();
-//playerOne.name = 'jake';
-//playerOne.id = 'alphacrutch@gmail.com';
-console.log(playerOne);
  </script> 
- <script src="Deck.js"></script>   
-<!-- <script src="player.js"></script>   -->  
-    
+ <script src="Deck.js"></script>     
 </body>
 </html>

@@ -1,0 +1,144 @@
+/*BlackJack Board Layout*/
+.grid-items {
+    background: black;
+    color: blanchedalmond;
+    padding: 5px;
+    border: 1px red solid;
+}
+.grid {
+    display: grid inline;
+    grid-template-columns:repeat(3,minmax(25px,200px));
+    grid-auto-rows: minmax(50px,280px);
+    grid-gap: 5px;
+}
+.grid-container {
+    position: absolute;
+    top: 50px;
+    left:200px;
+}
+.hand-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3,100px);
+}
+.hand {
+    border: 1px pink solid;
+    background: white;
+    padding: 2px;
+    color: black;
+    font-size: medium;
+}
+
+.author {
+    font-family:cursive;
+    top:5px;
+    position: absolute;
+    right: 5px;
+}
+/*All Fours Board Layout*/
+.board-grid {
+    display: grid inline;
+    grid-template-columns:minmax(25px,262.5px) minmax(100px,500px) minmax(25px,262.5px);
+    grid-template-rows: minmax(25px,262.5px) minmax(80px,400px) minmax(25px,262.5px);
+
+}
+.grid-section {
+    background:white;
+    color: black;
+    padding: 5px;
+    border: 2px orange solid;
+}
+
+/*Player Sections*/
+.p1-card-grid {
+    position: relative;
+}
+.p2-card-grid {
+    position: relative;   
+}
+.p3-card-grid {
+    position: relative;
+}
+.p4-card-grid {
+    position: relative;   
+}
+
+/* Center Play Area*/
+.play-area {
+    position: relative;
+}
+.team1-pot {
+    transform: rotate(90deg);
+    position: absolute;
+    height: 190px;
+    width: 125px;
+    left: 40px;
+    top: -28px;
+    border: black solid 1px;
+    border-radius: 12.3px;
+    background-image: url(images/brown_fancy.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.team2-pot {
+    position: absolute;
+    height: 190px;
+    width: 125px;
+    bottom: 5px;
+    right: 5px;
+    border: black solid 1px;
+    border-radius: 12.3px;
+    background-image: url(images/brown_fancy.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.pot {
+    
+    position: absolute;
+    height: 190px;
+    width: 125px;
+    top: 150px;
+    left: 200px;
+    border: black solid 1px;
+    border-radius: 12.3px;
+}
+.deck {
+    position: absolute;
+    height: 190px;
+    width: 125px;
+    top: 150px;
+    left: 50px;
+    border: black solid 1px;
+    border-radius: 12.3px;
+    z-index: 2;
+}
+.deck-layer {
+    position: absolute;
+    height: 190px;
+    width: 125px;
+    top: 150px;
+    left: 46px;
+    border:red solid 1px;
+    border-radius: 12.3px;
+    z-index: 1;
+}
+/*Buttons*/
+.knock-btn {
+    position: absolute;
+    right:10px;
+    height: 40px;
+    width: 80px;
+    color:greenyellow;
+    background-color: grey;
+    font-size: large;
+}
+#newgame-btn {
+    position: absolute;
+    height: 40px;
+    width: 125px;
+    top: 100px;
+    color:greenyellow;
+    background-color: grey;
+    font-size: large;
+}
+
