@@ -1,0 +1,84 @@
+
+html{
+    scroll-behavior: smooth;
+}        
+#article1 {    
+    display: flex;
+    position: absolute;;
+    height: 925px;
+    width: 100%;
+    background:-moz-linear-gradient(green,chartreuse);           
+}
+
+#text1 {
+    height: 100px;
+    width: 300px;
+    border: 5px black solid ;
+    border-radius: 20px;
+    font-size: large;
+    overflow: scroll;
+}    
+.article-one-wrapper {
+    margin: 5px;  
+    left: 2rem;
+    top: 100px;
+    position: absolute;        
+}
+#card-value {
+    color:black;
+}
+
+.nav-sub-circles {
+    height:25px ; 
+    width:25px ;
+    text-align: center;
+    border-radius: 50%;
+    border: black solid 2px;    
+}
+
+#main-nav-circle {
+    height: 50px; width: 50px;
+    position: fixed;
+    background-color: rgb(60, 255, 0);
+    border-radius: 50%;
+    top: 35px;
+    right: 50px;
+    border: black solid 2px;
+    z-index: 1;
+}
+
+#nav-sub-circle1 {
+    position: fixed;
+    background-color: rgb(0, 255, 242);
+    top: 5px;
+    right: 63px;
+    z-index: 1;    
+}
+
+#nav-sub-circle2 {
+    position: fixed;
+    top: 47px;
+    right: 105px;
+    background-color: rgb(255, 238, 0);
+    z-index: 1;
+}
+
+#nav-sub-circle3 {
+    position: fixed;
+    background-color: rgb(92, 91, 195);
+    top: 47px;
+    right: 20px;
+    z-index: 1;
+}
+
+#nav-sub-circle4 {
+    position: fixed;
+    background-color: rgb(204, 0, 255);
+    top: 90px;
+    right: 63px; 
+    z-index: 1;
+}
+div { 
+    font-size: larger;
+}
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/boardlayout.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href= "css/main.css">
+    <script defer src="js/deck_class.js"></script>
+    <script defer src="js/display.js"></script>
+    <script defer src="main.js"></script>
+    <script defer src="js/controls.js"></script>
+    <script defer src="js/game.js"></script>
+    <script defer src="js/game_class.js"></script>
+    <script defer src="js/player_class.js"></script>
+    <title>Single Page App</title>  
+</head>
+<body>
+    <article id="article1"> 
+        <h1>ALL Fours Card Game
+            <h2 class="a1"></h2>
+        </h1>
+        <button type="submit" class="btn-singleplayer" onclick="GameManager.playerSetupSingle()" >Single Player</button>
+        <button type="submit" class="btn-Team" onclick="GameManager.playerSetupFour()">Teams</button>
+        <input type="text" name="playerName" id="nameInput" placeholder="Enter a name 5-8 letters">
+        <div class="playerInfo"></div>
+        <button class ="newgame-btn">New Game</button>
+        <div class="board-grid">
+            <div class="grid-section">
+                <div class="team2-pot">team2-pot</div>
+            </div>
+            <div class="p4-card-grid grid-section">
+                <div class="card-display p4crd1 card-back">1</div>
+                <div class="card-display p4crd2 card-back">2</div>
+                <div class="card-display p4crd3 card-back">3</div>
+                <div class="card-display p4crd4 card-back">4</div>
+                <div class="card-display p4crd5 card-back">5</div>
+                <div class="card-display p4crd6 card-back">6</div>
+                <button class="knock-btn">Knock</button>  
+                <button class="p4-play playcard">Play</button>
+                P4              
+            </div>
+            <div class="grid-section"></div>
+            <div class="p2-card-grid grid-section">
+                <div class="card-display-side p2crd1 card-back">1</div>
+                <div class="card-display-side p2crd2 card-back">2</div>
+                <div class="card-display-side p2crd3 card-back">3</div>
+                <div class="card-display-side p2crd4 card-back">4</div>
+                <div class="card-display-side p2crd5 card-back">5</div>
+                <div class="card-display-side p2crd6 card-back">6</div>
+                <button class="knock-btn">Knock</button>  
+                <button class="p2-play playcard">Play</button>
+                P2              
+            </div>
+            <div class="grid-section play-area">
+                <p class="author">By: Kevon Boxill</p>
+                
+                <div  class="pot"></div>
+                <div class="deck card-back ">Deck</div>                
+                <div class="deck-layer card-back"></div>
+                <div class="deck-layer card-back"></div>
+               
+
+            </div>
+            <div class="p3-card-grid grid-section">
+                <div class="card-display-r p3crd1 card-back">1</div>
+                <div class="card-display-r p3crd2 card-back">2</div>
+                <div class="card-display-r p3crd3 card-back">3</div>
+                <div class="card-display-r p3crd4 card-back">4</div>
+                <div class="card-display-r p3crd5 card-back">5</div>
+                <div class="card-display-r p3crd6 card-back">6</div> 
+                <button class="knock-btn" id = "knock-tbn">Knock</button> 
+                <button class="p3-play playcard">Play</button>
+                P3               
+            </div>
+            <div class="grid-section"></div>
+            <div class="p1-card-grid grid-section">                
+                <div class="card-display crd1">
+                     <!--<div class="value-wrapper">
+                        <div class="value ">A</div>
+                        <div class="suit-side ">&#9824;</div>
+                    </div>
+                        <div class="center-suit">&spadesuit;</div>
+                    <div class="lower-value-wrapper">
+                        <div class="value">A</div>  
+                        <div class="suit-side">&#x2660;</div>   
+                    </div> -->
+                </div>               
+                <div class="card-display crd2">
+                  <!--  <div class="value-wrapper">
+                        <div class="value red">A</div>
+                        <div class="suit-side red">&#9830;</div>
+                    </div>
+                    <div class="red center-suit">&diamondsuit;</div>
+                    <div class="lower-value-wrapper">
+                        <div class="value red">A</div>  
+                        <div class="suit-side red">&#x2666;</div>                        
+                        </div> -->
+                </div>
+                <div class="card-display crd3">
+                   <!-- <div class="value-wrapper">
+                        <div class="value">A</div>
+                        <div class="suit-side">&#9827;</div>
+                    </div>
+                        <div class="suit-hearts center-suit">&clubs;</div>
+                    <div class="lower-value-wrapper">
+                        <div class="value">A</div>  
+                        <div class="suit-side">&#x2663;</div>                        
+                    </div> -->
+                </div>
+                <div class="card-display crd4">
+                    <!--<div class="value-wrapper">
+                        <div class="value red">A</div>
+                        <div class="suit-side red">&#9829;</div>
+                    </div>
+                        <div class="red center-suit">&heartsuit;</div>
+                    <div class="lower-value-wrapper">
+                        <div class="value red">A</div>  
+                        <div class="suit-side red">&#x2665;</div>                    
+                     </div>-->
+                </div>
+                <div class="card-display crd5">
+                    <!--<div class="value-wrapper">
+                        <div class="value">A</div>
+                        <div class="suit-side">&#9824;</div>
+                    </div>
+                        <div class="center-suit">&spadesuit;</div>
+                    <div class="lower-value-wrapper">
+                        <div class="value">A</div>  
+                        <div class="suit-side">&#x2660;</div>                        
+                     </div> -->
+                </div>
+                <div class="card-display crd6">
+                    <!--<div class="value-wrapper">
+                        <div class="value red">A</div>
+                        <div class="suit-side red">&#9829;</div>
+                    </div>
+                        <div class="red center-suit">&heartsuit;</div>
+                    <div class="lower-value-wrapper">
+                        <div class="value red">A</div>  
+                        <div class="suit-side red">&#x2665;</div>                    
+                    </div>--> 
+                </div>  
+                <button class="knock-btn">Knock</button>     
+                <button class="p1-play playcard">Play</button>
+                <button class="shuffle-btn"></button>                                      
+            </div>
+            <div class="grid-section"> 
+                <div id="team1-pot" class="team1-pot">team1-pot</div>
+            </div>
+        </div>
+    </article>
+ <script type="text/javascript">
+ let article1Text = document.querySelector(".a1");
+ article1Text.onclick =
+  function firstP(){
+     let text = "Welcome to My Simple Web Page";
+     createP(text);
+         
+ } 
+
+ function createP(text){
+    let p = document.createElement("p");
+     let node = document.createTextNode(text);
+     p.appendChild(node);
+     let parent =document.getElementById("text1");
+     parent.appendChild(p);
+     
+ }
+
+ </script> 
+ <script type="text/javascript">
+ /*class Player {
+constructor (id, name,gameId, game) {
+    this.id = id;
+    this.gameId = gameId;
+    this.game = game;
+    }
+
+    getName(){
+       let name = document.getElementById('name').value;
+       let name = 'andyqwert';
+
+        if (name.length < 8 || name.length > 16 ){
+            alert('Name must be betwen 8 and 16 letters long');
+            console.log('error')
+            return;
+        }
+        let text = 'Your Username is ' + name;  
+        createP(text);    
+        console.log(name);
+        return this.name;
+
+    }
+}*/
+
+ </script> 
+  
+</body>
+ 
+</html>
